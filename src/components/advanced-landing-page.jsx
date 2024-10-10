@@ -71,7 +71,8 @@ export function AdvancedLandingPage() {
             className="lg:w-1/2 mb-10 lg:mb-0"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}>
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <div className="relative">
               <motion.div 
                 className="text-[12rem] lg:text-[18rem] font-bold text-white/10 absolute -top-20 -left-4"
@@ -122,12 +123,14 @@ export function AdvancedLandingPage() {
             className="lg:w-1/2 space-y-8"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}>
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             <h2 className="text-5xl lg:text-7xl font-bold leading-tight">
               Your design <motion.span 
                 className="text-[#84F729] inline-block"
                 animate={{ rotate: [0, 360] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}>
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              >
                 +
               </motion.span> development partner.
             </h2>
@@ -137,10 +140,12 @@ export function AdvancedLandingPage() {
             <motion.div 
               whileHover={{ scale: 1.05 }} 
               whileTap={{ scale: 0.95 }}
-              className="inline-block">
+              className="inline-block"
+            >
               <Button
-                className="bg-[#84F729] hover:bg-[#9AFF4D] text-[#5038BC] font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 shadow-lg hover:shadow-xl">
-                LET'S TALK
+                className="bg-[#84F729] hover:bg-[#9AFF4D] text-[#5038BC] font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                LET&apos;S TALK
               </Button>
             </motion.div>
           </motion.div>
@@ -177,15 +182,15 @@ export function AdvancedLandingPage() {
           </svg>
         </motion.footer>
       </motion.div>
-     <div className="mt-10">
-     <ServicesPage />
-     </div>
-     <div className="mt-10">
-     <FuturisticProjectShowcase />
-     </div>
-     <div className="mt-10">
-     <FooterComponent />
-     </div>
+      <div className="mt-10">
+        <ServicesPage />
+      </div>
+      <div className="mt-10">
+        <FuturisticProjectShowcase />
+      </div>
+      <div className="mt-10">
+        <FooterComponent />
+      </div>
     </div>
   );
 }

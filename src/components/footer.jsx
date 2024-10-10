@@ -89,7 +89,7 @@ export function FooterComponent() {
               className="text-4xl md:text-6xl font-bold mb-4"
               variants={itemVariants}
             >
-              Let's build experiences
+              Let&apos;s build experiences
             </motion.h2>
             <motion.div
               className="text-2xl font-light"
