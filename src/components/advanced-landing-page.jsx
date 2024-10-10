@@ -40,7 +40,7 @@ export function AdvancedLandingPage() {
           }}
         />
         {/* Header */}
-        <header className="flex justify-between items-center mb-12 relative z-10 ml-10">
+        <header className="flex justify-between items-center mb-12 relative z-10 ml-0 md:ml-10">
           <motion.h1
             className="text-2xl font-bold"
             initial={{ opacity: 0, y: -20 }}
@@ -50,13 +50,7 @@ export function AdvancedLandingPage() {
             VidhyaNext
           </motion.h1>
           <div className="flex items-center space-x-4">
-            <Button
-              variant="outline"
-              className="text-black border-white hover:text-[#5038BC] transition-colors duration-300"
-            >
-              <MessageCircle className="mr-2 h-4 w-4" />
-              CHAT WITH TASZA
-            </Button>
+            
             <Button
               variant="ghost"
               className="text-white hover:bg-white/10 transition-colors duration-300"
@@ -66,7 +60,7 @@ export function AdvancedLandingPage() {
           </div>
         </header>
         {/* Main content */}
-        <main className="flex flex-col lg:flex-row items-center justify-between mt-20 lg:mt-32 relative z-10 ml-10">
+        <main className="flex flex-col lg:flex-row items-center justify-between mt-20 lg:mt-32 relative z-10 ml-0 md:ml-10">
           <motion.div 
             className="lg:w-1/2 mb-10 lg:mb-0"
             initial={{ opacity: 0, x: -50 }}
@@ -75,7 +69,7 @@ export function AdvancedLandingPage() {
           >
             <div className="relative">
               <motion.div 
-                className="text-[12rem] lg:text-[18rem] font-bold text-white/10 absolute -top-20 -left-4"
+                className="text-[8rem] sm:text-[12rem] lg:text-[18rem] font-bold text-white/10 absolute -top-10 sm:-top-20 -left-4"
                 animate={{ 
                   skew: [12, -12, 12],
                   rotateZ: [0, 5, 0]
@@ -88,7 +82,7 @@ export function AdvancedLandingPage() {
               >
                 VI
               </motion.div>
-              <div className="text-[9rem] lg:text-[15rem] font-bold">
+              <div className="text-[6rem] sm:text-[9rem] lg:text-[15rem] font-bold">
                 <motion.div
                   className="bg-clip-text text-transparent bg-gradient-to-r from-white via-[#84F729] to-[#FF00FF]"
                   animate={{
