@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
 import { ExternalLink, ChevronRight } from "lucide-react"
 
@@ -21,6 +21,7 @@ const projects = [
 
 export function FuturisticProjectShowcase() {
   const [hoveredProject, setHoveredProject] = useState(null)
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
   const { scrollYProgress } = useScroll({
@@ -30,6 +31,16 @@ export function FuturisticProjectShowcase() {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0])
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight })
+    }
+    
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -64,11 +75,11 @@ export function FuturisticProjectShowcase() {
             key={i}
             className="absolute w-2 h-2 bg-[#84F729] rounded-full"
             initial={{ 
-              x: Math.random() * window.innerWidth, 
-              y: Math.random() * window.innerHeight 
+              x: Math.random() * windowSize.width, 
+              y: Math.random() * windowSize.height 
             }}
             animate={{
-              y: [0, window.innerHeight],
+              y: [0, windowSize.height],
               opacity: [0, 1, 0]
             }}
             transition={{
