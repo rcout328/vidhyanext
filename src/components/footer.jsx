@@ -1,27 +1,38 @@
 "use client";
 import { useState, useRef } from "react"
 import { motion, useInView } from "framer-motion"
-import { Facebook, Twitter, Instagram, ChevronRight } from "lucide-react"
+import { Linkedin, Instagram, ChevronRight, Mail } from "lucide-react"
+import { Link as ScrollLink } from 'react-scroll'
 
 const footerLinks = [
   {
-    title: "Company",
-    links: ["About us", "Testimonials"],
+    title: "Quick Links",
+    links: [
+      { name: "Home", to: "home" },
+      { name: "Services", to: "services" },
+      { name: "Our Work", to: "futuristic-projects" },
+    ],
   },
   {
-    title: "Blog",
-    links: ["Careers", "Our Work", "Reviews"],
+    title: "Contact",
+    links: [
+      { name: "Contact Us", href: "mailto:work.varunisrani@gmail.com" },
+    ],
   },
   {
     title: "Office",
-    address: ["120 N Gould ST STE 3000", "Sheridan WY 9200"],
+    address: [
+      "101, Optimize Elegance,",
+      "Sarkhej - Gandhinagar Hwy,",
+      "Thaltej, Ahmedabad 380059"
+    ],
   },
 ]
 
 const socialIcons = [
-  { Icon: Facebook, href: "#" },
-  { Icon: Twitter, href: "#" },
-  { Icon: Instagram, href: "#" },
+  { Icon: Linkedin, href: "https://www.linkedin.com/in/varun-israni-a21022261/" },
+  { Icon: Instagram, href: "https://www.instagram.com/varun.isranii/" },
+  { Icon: Mail, href: "mailto:work.varunisrani@gmail.com" },
 ]
 
 export function FooterComponent() {
@@ -52,16 +63,10 @@ export function FooterComponent() {
       variants={containerVariants}
       className="bg-[#5038BC] text-white p-8 relative overflow-hidden"
     >
-      {/* Grid background */}
-      <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 pointer-events-none">
-        {[...Array(144)].map((_, i) => (
-          <motion.div 
-            key={i} 
-            className="border-[0.5px] border-white/10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: i * 0.005 }}
-          />
+      {/* Background grid */}
+      <div className="absolute inset-0 grid grid-cols-6 grid-rows-6">
+        {[...Array(36)].map((_, i) => (
+          <div key={i} className="border-[0.5px] border-white/10" />
         ))}
       </div>
 
@@ -91,24 +96,27 @@ export function FooterComponent() {
             >
               Let&apos;s build experiences
             </motion.h2>
-            <motion.div
-              className="text-2xl font-light"
+            <motion.a
+              href="mailto:work.varunisrani@gmail.com"
+              className="text-2xl font-light hover:text-[#84F729] transition-colors duration-300"
               variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
             >
-              VidhyaNext
-            </motion.div>
+              Start a project
+            </motion.a>
           </motion.div>
           <motion.div 
             className="flex items-center justify-end"
             variants={itemVariants}
           >
-            <motion.div
-              className="text-2xl md:text-4xl font-bold"
+            <motion.a
+              href="mailto:work.varunisrani@gmail.com"
+              className="text-2xl md:text-4xl font-bold hover:text-[#84F729] transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              hello@vidhyanext.com
-            </motion.div>
+              work.varunisrani@gmail.com
+            </motion.a>
           </motion.div>
         </motion.div>
 
@@ -128,25 +136,44 @@ export function FooterComponent() {
                 {section.links ? (
                   section.links.map((link) => (
                     <motion.li
-                      key={link}
+                      key={link.name}
                       className="mb-2"
                       variants={itemVariants}
                       whileHover={{ x: 5 }}
                     >
-                      <a
-                        href="#"
-                        className="text-white/80 hover:text-[#84F729] transition-colors duration-300 flex items-center"
-                        onMouseEnter={() => setHoveredLink(link)}
-                        onMouseLeave={() => setHoveredLink(null)}
-                      >
-                        <span>{link}</span>
-                        <ChevronRight 
-                          className={`ml-2 transition-opacity duration-300 ${
-                            hoveredLink === link ? "opacity-100" : "opacity-0"
-                          }`} 
-                          size={16} 
-                        />
-                      </a>
+                      {link.to ? (
+                        <ScrollLink
+                          to={link.to}
+                          smooth={true}
+                          duration={500}
+                          className="text-white/80 hover:text-[#84F729] transition-colors duration-300 flex items-center cursor-pointer"
+                          onMouseEnter={() => setHoveredLink(link.name)}
+                          onMouseLeave={() => setHoveredLink(null)}
+                        >
+                          <span>{link.name}</span>
+                          <ChevronRight 
+                            className={`ml-2 transition-opacity duration-300 ${
+                              hoveredLink === link.name ? "opacity-100" : "opacity-0"
+                            }`} 
+                            size={16} 
+                          />
+                        </ScrollLink>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className="text-white/80 hover:text-[#84F729] transition-colors duration-300 flex items-center"
+                          onMouseEnter={() => setHoveredLink(link.name)}
+                          onMouseLeave={() => setHoveredLink(null)}
+                        >
+                          <span>{link.name}</span>
+                          <ChevronRight 
+                            className={`ml-2 transition-opacity duration-300 ${
+                              hoveredLink === link.name ? "opacity-100" : "opacity-0"
+                            }`} 
+                            size={16} 
+                          />
+                        </a>
+                      )}
                     </motion.li>
                   ))
                 ) : (
@@ -201,6 +228,8 @@ export function FooterComponent() {
                 <motion.a
                   key={index}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white/60 hover:text-[#84F729] transition-colors duration-300"
                   variants={itemVariants}
                   whileHover={{ scale: 1.2, rotate: 15 }}

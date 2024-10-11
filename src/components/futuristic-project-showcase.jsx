@@ -63,8 +63,29 @@ export function FuturisticProjectShowcase() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="min-h-screen bg-[#5038BC] text-white p-8 relative overflow-hidden"
+      className="min-h-screen bg-[#5038BC] text-white p-6 relative overflow-hidden"
     >
+      {/* Background grid */}
+      <div className="absolute inset-0 grid grid-cols-6 grid-rows-6">
+        {[...Array(36)].map((_, i) => (
+          <div key={i} className="border-[0.5px] border-white/10" />
+        ))}
+      </div>
+      
+      {/* Background gradient */}
+      <motion.div
+        className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-[#84F729] to-[#5038BC] rounded-full blur-3xl opacity-30"
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 90, 0],
+        }}
+        transition={{
+          duration: 20,
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      />
+
       {/* Animated background elements */}
       <motion.div 
         className="absolute inset-0 opacity-20"
@@ -91,33 +112,7 @@ export function FuturisticProjectShowcase() {
         ))}
       </motion.div>
 
-      {/* Grid background */}
-      <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 pointer-events-none">
-        {[...Array(144)].map((_, i) => (
-          <motion.div 
-            key={i} 
-            className="border-[0.5px] border-white/10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: i * 0.01 }}
-          />
-        ))}
-      </div>
-
-      {/* Background gradient */}
-      <motion.div
-        className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-[#84F729] to-[#5038BC] rounded-full blur-3xl opacity-30"
-        animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 90, 0],
-        }}
-        transition={{
-          duration: 20,
-          ease: "linear",
-          repeat: Infinity,
-        }}
-      />
-
+      {/* Content */}
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.h2
           className="text-6xl font-bold mb-16 text-center"

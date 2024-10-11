@@ -7,6 +7,9 @@ import { ServicesPage } from "./services-page"
 import { FooterComponent } from "./footer"
 import { FuturisticProjectShowcase } from "./futuristic-project-showcase"
 import { CustomCursor } from "./custom-cursor"
+import DesignDevelopmentPartner from "./deve"
+import TechInnovation from "./TechInnovation"
+import CreativeProcess from "./CreativeProcess"
 
 export function AdvancedLandingPage() {
   const { scrollYProgress } = useScroll()
@@ -17,6 +20,7 @@ export function AdvancedLandingPage() {
     <div className="bg-[#5038BC] text-white relative overflow-hidden">
       <CustomCursor />
       <motion.div
+        id="home"
         style={{ opacity, scale }}
         className="min-h-screen p-6 relative"
       >
@@ -49,15 +53,7 @@ export function AdvancedLandingPage() {
           >
             VidhyaNext
           </motion.h1>
-          <div className="flex items-center space-x-4">
-            
-            <Button
-              variant="ghost"
-              className="text-white hover:bg-white/10 transition-colors duration-300"
-            >
-              <Menu className="h-6 w-6" />
-            </Button>
-          </div>
+        
         </header>
         {/* Main content */}
         <main className="flex flex-col lg:flex-row items-center justify-between mt-20 lg:mt-32 relative z-10 ml-0 md:ml-10">
@@ -129,7 +125,7 @@ export function AdvancedLandingPage() {
               </motion.span> development partner.
             </h2>
             <p className="text-2xl opacity-80">
-              Hire our team of developers and designers for short-term, recurring, and full-time work.
+            Your go-to partner for smart, seamless design and development solutions.
             </p>
             <motion.div 
               whileHover={{ scale: 1.05 }} 
@@ -138,6 +134,7 @@ export function AdvancedLandingPage() {
             >
               <Button
                 className="bg-[#84F729] hover:bg-[#9AFF4D] text-[#5038BC] font-bold py-4 px-8 rounded-full text-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                onClick={() => window.location.href = "mailto:work.varunisrani@gmail.com"}
               >
                 LET&apos;S TALK
               </Button>
@@ -176,12 +173,24 @@ export function AdvancedLandingPage() {
           </svg>
         </motion.footer>
       </motion.div>
-      <div className="mt-10">
+      
+      {/* Design Development Partner component */}
+      <DesignDevelopmentPartner />
+      
+      <div id="services" className="mt-10">
         <ServicesPage />
       </div>
-      <div className="mt-10">
+
+      {/* Tech Innovation component */}
+      <TechInnovation />
+
+      <div id="futuristic-projects" className="mt-10">
         <FuturisticProjectShowcase />
       </div>
+
+      {/* Creative Process component */}
+      <CreativeProcess />
+
       <div className="mt-10">
         <FooterComponent />
       </div>

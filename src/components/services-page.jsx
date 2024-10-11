@@ -8,18 +8,18 @@ import { useRef } from "react"
 const services = [
   {
     id: "01",
-    title: "CONSULTING",
-    description: "Borrow Our Minds, Validate Your Ideas, See if Devflow is the Right Fit",
+    title: "WEB DEVELOPMENT",
+    description: "Custom website solutions 🌟 designed to fit your business needs.",
   },
   {
     id: "02",
-    title: "DEVELOPMENT",
-    description: "Website Development, No-Code Platforms, CMS Implementation, Enterprise Platform Migration",
+    title: "APP DEVELOPMENT",
+    description: "Bringing your app ideas to life with expert development for mobile and web platforms. 🚀",
   },
   {
     id: "03",
-    title: "VISUAL DESIGN",
-    description: "Marketing Websites, No-Code Products, Design Systems",
+    title: "UI/UX DESIGN",
+    description: "Crafting intuitive and visually stunning ✨ user interfaces and experiences for both web and mobile applications. 🖥️📱",
   },
 ]
 
@@ -49,21 +49,30 @@ export function ServicesPage() {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="min-h-screen bg-[#5038BC] text-white p-8 relative overflow-hidden"
+      className="min-h-screen bg-[#5038BC] text-white p-6 relative overflow-hidden"
     >
-      {/* Grid background */}
-      <div className="absolute inset-0 grid grid-cols-12 grid-rows-12 pointer-events-none">
-        {[...Array(144)].map((_, i) => (
-          <motion.div 
-            key={i} 
-            className="border-[0.5px] border-white/10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: i * 0.01 }}
-          />
+      {/* Background grid */}
+      <div className="absolute inset-0 grid grid-cols-6 grid-rows-6">
+        {[...Array(36)].map((_, i) => (
+          <div key={i} className="border-[0.5px] border-white/10" />
         ))}
       </div>
-      {/* Content */}
+      
+      {/* Background gradient */}
+      <motion.div
+        className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-[#84F729] to-[#5038BC] rounded-full blur-3xl opacity-30"
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, 90, 0],
+        }}
+        transition={{
+          duration: 20,
+          ease: "linear",
+          repeat: Infinity,
+        }}
+      />
+
+      {/* Existing content */}
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-start justify-between">
           {/* Left column */}
