@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const DesignDevelopmentPartner = () => {
   return (
     <motion.div 
-      className="flex items-center justify-center py-8 md:py-12 lg:py-16 bg-black text-white overflow-hidden relative"
+      className="flex items-center justify-center py-4 sm:py-6 md:py-8 lg:py-10 bg-black text-white overflow-hidden relative"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -29,9 +29,9 @@ const DesignDevelopmentPartner = () => {
         }}
       />
 
-      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl flex flex-row items-center space-x-4 md:space-x-8 relative z-10 overflow-x-auto whitespace-nowrap px-4 sm:px-0">
+      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl flex flex-row items-center justify-center space-x-2 sm:space-x-3 md:space-x-4 relative z-10 px-2 sm:px-4">
         <motion.span 
-          className="font-light"
+          className="font-light whitespace-nowrap"
           whileHover={{ scale: 1.05, color: "#84F729" }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ const DesignDevelopmentPartner = () => {
           →
         </motion.span>
         <motion.span 
-          className="font-bold text-[#84F729]"
+          className="font-bold text-[#84F729] whitespace-nowrap"
           whileHover={{ scale: 1.05, color: "white" }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ const DesignDevelopmentPartner = () => {
           →
         </motion.span>
         <motion.span 
-          className="font-light"
+          className="font-light whitespace-nowrap"
           whileHover={{ scale: 1.05, color: "#84F729" }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ const DesignDevelopmentPartner = () => {
 
       {/* Decorative elements */}
       <motion.div
-        className="absolute top-0 left-0 w-12 h-12 md:w-16 md:h-16 border-t-2 border-l-2 border-[#84F729] opacity-50"
+        className="absolute top-0 left-0 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 border-t-2 border-l-2 border-[#84F729] opacity-50"
         animate={{ 
           rotate: 360,
           scale: [1, 1.2, 1]
@@ -101,7 +101,7 @@ const DesignDevelopmentPartner = () => {
         }}
       />
       <motion.div
-        className="absolute bottom-0 right-0 w-12 h-12 md:w-16 md:h-16 border-b-2 border-r-2 border-[#84F729] opacity-50"
+        className="absolute bottom-0 right-0 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 border-b-2 border-r-2 border-[#84F729] opacity-50"
         animate={{ 
           rotate: -360,
           scale: [1, 1.2, 1]
