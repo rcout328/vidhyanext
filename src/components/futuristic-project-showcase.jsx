@@ -17,6 +17,12 @@ const projects = [
     description: "Indulge in heavenly cakes and baked goods for any occasion.",
     websiteUrl: "https://www.wkndbakes.in/"
   },
+  {
+    id: "03",
+    title: "ScamRakshak",
+    description: "Advanced fraud detection and prevention system for secure digital transactions.",
+    websiteUrl: "https://scamrakshak.vercel.app/"
+  },
 ]
 
 export function FuturisticProjectShowcase() {
@@ -121,7 +127,7 @@ export function FuturisticProjectShowcase() {
           Futuristic Projects
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}

@@ -10,6 +10,12 @@ import { CustomCursor } from "./custom-cursor"
 import DesignDevelopmentPartner from "./deve"
 import TechInnovation from "./TechInnovation"
 import CreativeProcess from "./CreativeProcess"
+import dynamic from 'next/dynamic'
+
+// Remove or comment out the dynamic import for ThirdPartyComponent
+// const ThirdPartyComponent = dynamic(() => import('./ThirdPartyComponent'), {
+//   loading: () => <p>Loading...</p>,
+// })
 
 export function AdvancedLandingPage() {
   const { scrollYProgress } = useScroll()
